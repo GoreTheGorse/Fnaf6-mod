@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PPP",
+    "PIP",
+    "PPP"
+  ],
+  "key": {
+    "P": { "item": "fnaf6:animatronic_part" },
+    "I": { "item": "minecraft:paper" }
+  },
+  "result": {
+    "id": "fnaf6:blueprint",
+    "count": 1
+  }
+}

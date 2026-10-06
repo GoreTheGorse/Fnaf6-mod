@@ -8,6 +8,7 @@ import com.fnaf6.mod.item.ModItemGroups;
 import com.fnaf6.mod.item.ModItems;
 import com.fnaf6.mod.pizzeria.PizzeriaEvents;
 import com.fnaf6.mod.rating.RatingManager;
+import com.fnaf6.mod.salvage.SalvageManager;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,7 @@ public class Fnaf6Mod implements ModInitializer {
         ModItems.register();
         ModItemGroups.register();
         ModEntities.register();
+        SalvageManager.register();
         RatingManager.register();
         FazCommands.register();
         PizzeriaEvents.register();

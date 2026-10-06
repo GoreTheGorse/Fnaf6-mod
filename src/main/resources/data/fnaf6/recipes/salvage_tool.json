@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "I I",
+    " S ",
+    " P "
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "S": { "item": "minecraft:stick" },
+    "P": { "item": "fnaf6:animatronic_part" }
+  },
+  "result": {
+    "id": "fnaf6:salvage_tool",
+    "count": 1
+  }
+}
