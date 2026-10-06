@@ -1,6 +1,7 @@
 package com.fnaf6.mod.command;
 
 import com.fnaf6.mod.economy.CurrencyManager;
+import com.mojang.brigadier.arguments.LongArgumentType;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.server.command.CommandManager;
