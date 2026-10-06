@@ -4,6 +4,7 @@ import com.fnaf6.mod.rating.FazRating;
 import com.fnaf6.mod.rating.RatingManager;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -17,7 +18,7 @@ public final class RatingCommands {
                 .then(CommandManager.literal("info").executes(RatingCommands::info));
     }
 
-    private static int info(CommandContext<ServerCommandSource> ctx) {
+    private static int info(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
         ServerPlayerEntity player = ctx.getSource().getPlayerOrThrow();
         FazRating rating = RatingManager.getOrCreate(player.getUuid());
         ctx.getSource().sendFeedback(() -> Text.translatable(
