@@ -1,8 +1,6 @@
 package com.fnaf6.mod.command;
 
 import com.fnaf6.mod.economy.CurrencyManager;
-import com.fnaf6.mod.rating.RatingManager;
-import com.mojang.brigadier.arguments.LongArgumentType;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.server.command.CommandManager;
@@ -15,7 +13,11 @@ public class FazCommands {
                 dispatcher.register(CommandManager.literal("fnaf6")
                         .then(CommandManager.literal("balance")
                                 .executes(ctx -> {
-                                    ServerPlayerEntity player = ctx.getSource().getPlayerOrThrow();
+                                    ServerPlayerEntity player = ctx.getSource().getPlayer();
+                                    if (player == null) {
+                                        ctx.getSource().sendError(Text.literal("This command can only be run by a player."));
+                                        return 0;
+                                    }
                                     long bal = CurrencyManager.get(ctx.getSource().getServer()).getBalance(player.getUuid());
                                     ctx.getSource().sendFeedback(() -> Text.translatable("message.fnaf6.balance", bal), false);
                                     return 1;

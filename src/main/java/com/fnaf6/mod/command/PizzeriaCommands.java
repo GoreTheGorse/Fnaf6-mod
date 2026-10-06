@@ -9,7 +9,6 @@ import com.mojang.brigadier.arguments.LongArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -55,8 +54,12 @@ public final class PizzeriaCommands {
         return p;
     }
 
-    private static int info(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
-        ServerPlayerEntity player = ctx.getSource().getPlayerOrThrow();
+    private static int info(CommandContext<ServerCommandSource> ctx) {
+        ServerPlayerEntity player = ctx.getSource().getPlayer();
+        if (player == null) {
+            ctx.getSource().sendError(Text.literal("This command can only be run by a player."));
+            return 0;
+        }
         Pizzeria p = resolve(ctx, player);
         if (p == null) {
             return 0;
@@ -65,8 +68,12 @@ public final class PizzeriaCommands {
         return 1;
     }
 
-    private static int rename(CommandContext<ServerCommandSource> ctx, String raw) throws CommandSyntaxException {
-        ServerPlayerEntity player = ctx.getSource().getPlayerOrThrow();
+    private static int rename(CommandContext<ServerCommandSource> ctx, String raw) {
+        ServerPlayerEntity player = ctx.getSource().getPlayer();
+        if (player == null) {
+            ctx.getSource().sendError(Text.literal("This command can only be run by a player."));
+            return 0;
+        }
         Pizzeria p = resolve(ctx, player);
         if (p == null) {
             return 0;
@@ -86,8 +93,12 @@ public final class PizzeriaCommands {
         return 1;
     }
 
-    private static int upgrade(CommandContext<ServerCommandSource> ctx, UpgradeType type) throws CommandSyntaxException {
-        ServerPlayerEntity player = ctx.getSource().getPlayerOrThrow();
+    private static int upgrade(CommandContext<ServerCommandSource> ctx, UpgradeType type) {
+        ServerPlayerEntity player = ctx.getSource().getPlayer();
+        if (player == null) {
+            ctx.getSource().sendError(Text.literal("This command can only be run by a player."));
+            return 0;
+        }
         Pizzeria p = resolve(ctx, player);
         if (p == null) {
             return 0;
@@ -111,8 +122,12 @@ public final class PizzeriaCommands {
         return 1;
     }
 
-    private static int withdraw(CommandContext<ServerCommandSource> ctx, long requested) throws CommandSyntaxException {
-        ServerPlayerEntity player = ctx.getSource().getPlayerOrThrow();
+    private static int withdraw(CommandContext<ServerCommandSource> ctx, long requested) {
+        ServerPlayerEntity player = ctx.getSource().getPlayer();
+        if (player == null) {
+            ctx.getSource().sendError(Text.literal("This command can only be run by a player."));
+            return 0;
+        }
         Pizzeria p = resolve(ctx, player);
         if (p == null) {
             return 0;
@@ -129,8 +144,12 @@ public final class PizzeriaCommands {
         return 1;
     }
 
-    private static int deposit(CommandContext<ServerCommandSource> ctx, long amount) throws CommandSyntaxException {
-        ServerPlayerEntity player = ctx.getSource().getPlayerOrThrow();
+    private static int deposit(CommandContext<ServerCommandSource> ctx, long amount) {
+        ServerPlayerEntity player = ctx.getSource().getPlayer();
+        if (player == null) {
+            ctx.getSource().sendError(Text.literal("This command can only be run by a player."));
+            return 0;
+        }
         Pizzeria p = resolve(ctx, player);
         if (p == null) {
             return 0;
