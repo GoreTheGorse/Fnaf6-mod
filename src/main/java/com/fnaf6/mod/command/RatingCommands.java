@@ -4,7 +4,6 @@ import com.fnaf6.mod.rating.FazRating;
 import com.fnaf6.mod.rating.RatingManager;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -18,8 +17,13 @@ public final class RatingCommands {
                 .then(CommandManager.literal("info").executes(RatingCommands::info));
     }
 
-    private static int info(CommandContext<ServerCommandSource> ctx) throws CommandSyntaxException {
-        ServerPlayerEntity player = ctx.getSource().getPlayerOrThrow();
+    private static int info(CommandContext<ServerCommandSource> ctx) {
+        ServerPlayerEntity player = ctx.getSource().getPlayer();
+        if (player == null) {
+            ctx.getSource().sendError(Text.literal("This command can only be run by a player."));
+            return 0;
+        }
+
         FazRating rating = RatingManager.getOrCreate(player.getUuid());
         ctx.getSource().sendFeedback(() -> Text.translatable(
                 "message.fnaf6.rating.info",
