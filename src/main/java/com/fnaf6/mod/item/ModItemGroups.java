@@ -20,6 +20,14 @@ public class ModItemGroups {
                     .entries((context, entries) -> {
                         entries.add(ModItems.FAZ_COIN);
                         entries.add(ModItems.FAZ_TABLET);
+                        entries.add(ModItems.BLUEPRINT);
+                        entries.add(ModItems.ANIMATRONIC_PART);
+                        entries.add(ModItems.SALVAGE_TOOL);
+                        entries.add(ModItems.LIABILITY_PAPER);
+                        entries.add(ModItems.CIRCUIT_BOARD);
+                        entries.add(ModItems.SECURITY_LOG);
+                        entries.add(ModItems.DOOR_KEY);
+                        entries.add(ModItems.MAP_FRAGMENT);
                         entries.add(ModBlocks.CHECKER_FLOOR);
                         entries.add(ModBlocks.PIZZERIA_WALL);
                         entries.add(ModBlocks.NEON_SIGN);
@@ -27,6 +35,10 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PARTY_TABLE);
                         entries.add(ModBlocks.ARCADE_CABINET);
                         entries.add(ModBlocks.PRIZE_COUNTER);
+                        entries.add(ModBlocks.SALVAGE_TABLE);
+                        entries.add(ModBlocks.BLUEPRINT_STATION);
+                        entries.add(ModBlocks.ASSEMBLY_BENCH);
+                        entries.add(ModBlocks.RATING_TERMINAL);
                     })
                     .build());
 

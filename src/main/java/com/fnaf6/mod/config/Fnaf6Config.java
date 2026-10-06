@@ -38,6 +38,12 @@ public class Fnaf6Config {
     public int maxPizzeriasPerPlayer = 1;
     public long pizzeriaFoundingCost = 100;
 
+    // --- Rating system ---
+    public int ratingMax = 100;
+    public int ratingUpdateIntervalTicks = 200;
+    public long dailyBaseRevenue = 50;
+    public boolean enableRatingSystem = true;
+
     // --- Audio ---
     public double soundVolume = 1.0;
 
@@ -87,6 +93,10 @@ public class Fnaf6Config {
         pizzeriaRadius = (int) clamp(pizzeriaRadius, 8, 64);
         maxPizzeriasPerPlayer = (int) clamp(maxPizzeriasPerPlayer, 1, 10);
         pizzeriaFoundingCost = (long) clamp(pizzeriaFoundingCost, 0, 1_000_000);
+        ratingMax = (int) clamp(ratingMax, 1, 100);
+        ratingUpdateIntervalTicks = (int) clamp(ratingUpdateIntervalTicks, 20, 1200);
+        dailyBaseRevenue = Math.max(0L, dailyBaseRevenue);
+        enableRatingSystem = enableRatingSystem;
     }
 
     private static double clamp(double v, double min, double max) {

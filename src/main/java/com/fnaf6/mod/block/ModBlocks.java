@@ -1,6 +1,7 @@
 package com.fnaf6.mod.block;
 
 import com.fnaf6.mod.Fnaf6Mod;
+import com.fnaf6.mod.pizzeria.AttractionType;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.MapColor;
@@ -11,7 +12,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-import com.fnaf6.mod.pizzeria.AttractionType;
 
 public class ModBlocks {
     public static final Block CHECKER_FLOOR = register("checker_floor",
@@ -62,6 +62,36 @@ public class ModBlocks {
                     .mapColor(MapColor.YELLOW)
                     .strength(1.5f)
                     .sounds(BlockSoundGroup.WOOD), AttractionType.PRIZE_COUNTER));
+
+    public static final Block SALVAGE_TABLE = register("salvage_table",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.GRAY)
+                    .strength(2.0f, 8.0f)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.METAL)));
+
+    public static final Block BLUEPRINT_STATION = register("blueprint_station",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.CYAN)
+                    .strength(1.8f, 7.0f)
+                    .requiresTool()
+                    .luminance(state -> 6)
+                    .sounds(BlockSoundGroup.METAL)));
+
+    public static final Block ASSEMBLY_BENCH = register("assembly_bench",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.BROWN)
+                    .strength(2.2f, 8.0f)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.WOOD)));
+
+    public static final Block RATING_TERMINAL = register("rating_terminal",
+            new Block(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.PURPLE)
+                    .strength(2.5f, 10.0f)
+                    .requiresTool()
+                    .luminance(state -> 10)
+                    .sounds(BlockSoundGroup.METAL)));
 
     private static Block register(String name, Block block) {
         Identifier id = Identifier.of(Fnaf6Mod.MOD_ID, name);

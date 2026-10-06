@@ -15,6 +15,8 @@ public class ModItems {
     public static final Item LIABILITY_PAPER = register("liability_paper", new Item(new Item.Settings()));
     public static final Item CIRCUIT_BOARD = register("circuit_board", new Item(new Item.Settings()));
     public static final Item SECURITY_LOG = register("security_log", new Item(new Item.Settings()));
+    public static final Item DOOR_KEY = register("door_key", new Item(new Item.Settings()));
+    public static final Item MAP_FRAGMENT = register("map_fragment", new Item(new Item.Settings()));
 
     private static Item register(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(Fnaf6Mod.MOD_ID, name), item);

@@ -1,6 +1,7 @@
 package com.fnaf6.mod.command;
 
 import com.fnaf6.mod.economy.CurrencyManager;
+import com.fnaf6.mod.rating.RatingManager;
 import com.mojang.brigadier.arguments.LongArgumentType;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.command.argument.EntityArgumentType;
@@ -19,6 +20,7 @@ public class FazCommands {
                                     ctx.getSource().sendFeedback(() -> Text.translatable("message.fnaf6.balance", bal), false);
                                     return 1;
                                 }))
+                        .then(RatingCommands.node())
                         .then(PizzeriaCommands.node())
                         .then(CommandManager.literal("give")
                                 .requires(src -> src.hasPermissionLevel(2))
