@@ -5,12 +5,12 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.world.World;
 
-public class LeftyEntity extends AbstractAnimatronicEntity {
-    public LeftyEntity(EntityType<? extends HostileEntity> entityType, World world) {
+public class ScraptrapEntity extends AbstractAnimatronicEntity {
+    public ScraptrapEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {
-        return createBaseAttributes(32.0D, 0.28D, 6.0D, 24.0D);
+        return createBaseAttributes(40.0D, 0.31D, 8.0D, 28.0D);
     }
 }

@@ -29,7 +29,7 @@ public class RatingManager {
     }
 
     public static void updateFromPizzeria(ServerPlayerEntity player, double entertainmentBonus, double atmosphereBonus,
-                                         double safetyBonus, double revenueBonus) {
+                                          double safetyBonus, double revenueBonus) {
         if (!Fnaf6Config.get().enableRatingSystem) {
             return;
         }
@@ -43,6 +43,11 @@ public class RatingManager {
         );
         RATINGS.put(player.getUuid(), updated);
         player.sendMessage(Text.translatable("message.fnaf6.rating.updated", Math.round(updated.overall())), true);
+    }
+
+    public static void applyAnimatronicBonus(ServerPlayerEntity player, double entertainmentBonus, double atmosphereBonus,
+                                           double safetyBonus, double revenueBonus) {
+        updateFromPizzeria(player, entertainmentBonus, atmosphereBonus, safetyBonus, revenueBonus);
     }
 
     public static long computeDailyRevenue(UUID playerId) {
