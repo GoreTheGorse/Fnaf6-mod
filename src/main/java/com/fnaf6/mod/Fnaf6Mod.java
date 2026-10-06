@@ -3,6 +3,7 @@ package com.fnaf6.mod;
 import com.fnaf6.mod.block.ModBlocks;
 import com.fnaf6.mod.command.FazCommands;
 import com.fnaf6.mod.config.Fnaf6Config;
+import com.fnaf6.mod.entity.ModEntities;
 import com.fnaf6.mod.item.ModItemGroups;
 import com.fnaf6.mod.item.ModItems;
 import com.fnaf6.mod.pizzeria.PizzeriaEvents;
@@ -21,6 +22,7 @@ public class Fnaf6Mod implements ModInitializer {
         ModBlocks.register();
         ModItems.register();
         ModItemGroups.register();
+        ModEntities.register();
         RatingManager.register();
         FazCommands.register();
         PizzeriaEvents.register();
