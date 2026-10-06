@@ -81,10 +81,9 @@ public abstract class AbstractAnimatronicEntity extends HostileEntity {
     }
 
     public void setState(AnimatronicState newState) {
-        if (newState == null) {
-            return;
+        if (newState != null) {
+            this.state = newState;
         }
-        this.state = newState;
     }
 
     public static DefaultAttributeContainer.Builder createBaseAttributes(double maxHealth, double speed, double attackDamage, double followRange) {
