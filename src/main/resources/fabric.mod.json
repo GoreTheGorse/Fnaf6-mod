@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "fnaf6",
+  "version": "${version}",
+  "name": "Pizzeria Simulator (FNaF 6 Fan Mod)",
+  "description": "A fan-made Minecraft adaptation inspired by FNaF 6. Not affiliated with Scott Cawthon.",
+  "authors": ["You"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.fnaf6.mod.Fnaf6Mod"]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
